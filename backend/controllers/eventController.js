@@ -2,7 +2,18 @@ const Event = require('../models/Event');
 
 exports.getEvents = async (req, res) => {
   try {
-    const events = await Event.find().sort({ date: 1 });
+    const { category, search } = req.query;
+    let query = {};
+
+    if (category && category !== 'All') {
+      query.category = category;
+    }
+
+    if (search) {
+      query.name = { $regex: search, $options: 'i' };
+    }
+
+    const events = await Event.find(query).sort({ date: 1 });
     res.json(events);
   } catch (err) {
     console.error(err.message);

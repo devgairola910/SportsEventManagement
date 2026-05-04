@@ -5,11 +5,22 @@ export default function EventCard({ event }) {
 
   return (
     <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-slate-100 flex flex-col relative group">
-      <div className="h-40 bg-gradient-to-r from-indigo-500 to-purple-600 relative p-6 flex items-end">
-        <span className="absolute top-4 right-4 bg-white/20 backdrop-blur-md text-white border border-white/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+      <div className="h-48 relative group overflow-hidden">
+        {event.imageUrl ? (
+          <img 
+            src={event.imageUrl} 
+            alt={event.name} 
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-r from-indigo-500 to-purple-600" />
+        )}
+        <span className="absolute top-4 right-4 bg-black/40 backdrop-blur-md text-white border border-white/20 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider z-10">
           {event.category}
         </span>
-        <h3 className="text-2xl font-bold text-white drop-shadow-md truncate">{event.name}</h3>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+           <h3 className="text-2xl font-bold text-white drop-shadow-md truncate">{event.name}</h3>
+        </div>
       </div>
       
       <div className="p-6 flex flex-col flex-grow">

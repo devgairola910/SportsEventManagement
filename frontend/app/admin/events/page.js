@@ -1,12 +1,12 @@
 "use client";
 import { useState, useEffect } from 'react';
 import { fetchAPI } from '@/lib/api';
-import { Plus, Edit2, Trash2, CalendarDays } from 'lucide-react';
+import { Plus, Edit2, Trash2, CalendarDays, Image as ImageIcon } from 'lucide-react';
 
 export default function ManageEvents() {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [formData, setFormData] = useState({ name: '', description: '', date: '', venue: '', maxParticipants: '', category: '' });
+  const [formData, setFormData] = useState({ name: '', description: '', date: '', venue: '', maxParticipants: '', category: '', imageUrl: '' });
   const [isEditing, setIsEditing] = useState(false);
   const [editId, setEditId] = useState(null);
 
@@ -43,7 +43,7 @@ export default function ManageEvents() {
           body: JSON.stringify(formData)
         });
       }
-      setFormData({ name: '', description: '', date: '', venue: '', maxParticipants: '', category: '' });
+      setFormData({ name: '', description: '', date: '', venue: '', maxParticipants: '', category: '', imageUrl: '' });
       setIsEditing(false);
       setEditId(null);
       loadEvents();
@@ -88,6 +88,12 @@ export default function ManageEvents() {
             <label className="block text-sm font-bold text-slate-700 mb-2">Description</label>
             <textarea name="description" required rows="3" value={formData.description} onChange={handleInputChange} className="w-full p-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 bg-slate-50 transition-all outline-none" />
           </div>
+          <div className="col-span-1 md:col-span-2">
+            <label className="block text-sm font-bold text-slate-700 mb-2 flex items-center gap-2">
+              <ImageIcon size={16} /> Image URL (Optional)
+            </label>
+            <input type="url" name="imageUrl" placeholder="https://example.com/image.jpg" value={formData.imageUrl} onChange={handleInputChange} className="w-full p-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 bg-slate-50 transition-all outline-none" />
+          </div>
           <div>
             <label className="block text-sm font-bold text-slate-700 mb-2">Date</label>
              <input type="date" name="date" required value={formData.date} onChange={handleInputChange} className="w-full p-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 bg-slate-50 transition-all outline-none" />
@@ -109,7 +115,7 @@ export default function ManageEvents() {
               <Plus size={20} /> {isEditing ? 'Update Event' : 'Create Event'}
             </button>
             {isEditing && (
-              <button type="button" onClick={() => { setIsEditing(false); setFormData({ name: '', description: '', date: '', venue: '', maxParticipants: '', category: '' }) }} className="w-full mt-3 text-slate-500 font-medium hover:text-slate-800">
+              <button type="button" onClick={() => { setIsEditing(false); setFormData({ name: '', description: '', date: '', venue: '', maxParticipants: '', category: '', imageUrl: '' }) }} className="w-full mt-3 text-slate-500 font-medium hover:text-slate-800">
                 Cancel Edit
               </button>
             )}

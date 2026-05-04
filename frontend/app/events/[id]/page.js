@@ -53,9 +53,18 @@ export default function EventDetail({ params }) {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-slate-100">
-        <div className="h-64 sm:h-80 bg-gradient-to-tr from-indigo-700 via-purple-700 to-indigo-900 relative">
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/black-scales.png')] opacity-20" />
-          <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-12 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end h-full">
+        <div className="h-64 sm:h-96 bg-slate-900 relative">
+          {event.imageUrl ? (
+            <img 
+              src={event.imageUrl} 
+              alt={event.name} 
+              className="w-full h-full object-cover opacity-60"
+            />
+          ) : (
+            <div className="w-full h-full bg-gradient-to-tr from-indigo-700 via-purple-700 to-indigo-900" />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-12 flex flex-col justify-end h-full">
             <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-bold text-white uppercase tracking-widest border border-white/30 table mb-4">
                {event.category}
             </span>
@@ -67,7 +76,9 @@ export default function EventDetail({ params }) {
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
           <div className="lg:col-span-2 p-8 sm:p-12 lg:border-r border-slate-100 bg-white">
-            <h2 className="text-2xl font-bold text-slate-800 tracking-tight mb-6">About the Event</h2>
+            <h2 className="text-2xl font-bold text-slate-800 tracking-tight mb-6 flex items-center gap-2">
+              About the Event
+            </h2>
             <p className="text-slate-600 leading-relaxed text-lg whitespace-pre-wrap">
               {event.description}
             </p>
