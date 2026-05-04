@@ -59,7 +59,7 @@ export default function Dashboard() {
         {myRegistrations.length === 0 ? (
           <div className="text-center py-16 bg-slate-50 rounded-2xl border border-dashed border-slate-300">
             <Ticket className="mx-auto text-slate-300 mb-4" size={48} />
-            <p className="text-slate-500 font-medium text-lg">You haven't registered for any events yet.</p>
+            <p className="text-slate-500 font-medium text-lg">You haven&apos;t registered for any events yet.</p>
             <button onClick={() => router.push('/')} className="mt-6 font-bold text-indigo-600 hover:text-indigo-800">Browse Events</button>
           </div>
         ) : (

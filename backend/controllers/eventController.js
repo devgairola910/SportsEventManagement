@@ -6,7 +6,7 @@ exports.getEvents = async (req, res) => {
     res.json(events);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).json({ message: 'Server Error' });
   }
 };
 
@@ -22,7 +22,7 @@ exports.getEventById = async (req, res) => {
     if (err.kind === 'ObjectId') {
       return res.status(404).json({ message: 'Event not found' });
     }
-    res.status(500).send('Server Error');
+    res.status(500).json({ message: 'Server Error' });
   }
 };
 
@@ -33,7 +33,7 @@ exports.createEvent = async (req, res) => {
     res.status(201).json(event);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).json({ message: 'Server Error' });
   }
 };
 
@@ -50,7 +50,7 @@ exports.updateEvent = async (req, res) => {
     res.json(event);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).json({ message: 'Server Error' });
   }
 };
 
@@ -66,6 +66,6 @@ exports.deleteEvent = async (req, res) => {
     if (err.kind === 'ObjectId') {
       return res.status(404).json({ message: 'Event not found' });
     }
-    res.status(500).send('Server Error');
+    res.status(500).json({ message: 'Server Error' });
   }
 };

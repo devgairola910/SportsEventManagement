@@ -1,4 +1,4 @@
-++"use client";
+"use client";
 import { useEffect, useState } from 'react';
 import { fetchAPI } from '@/lib/api';
 import EventCard from '@/components/EventCard';

@@ -33,7 +33,7 @@ exports.registerForEvent = async (req, res) => {
     res.status(201).json(registration);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).json({ message: 'Server Error' });
   }
 };
 
@@ -43,7 +43,7 @@ exports.getMyRegistrations = async (req, res) => {
     res.json(registrations);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).json({ message: 'Server Error' });
   }
 };
 
@@ -53,7 +53,7 @@ exports.getEventRegistrations = async (req, res) => {
     res.json(registrations);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).json({ message: 'Server Error' });
   }
 };
 
@@ -74,6 +74,6 @@ exports.updateRegistrationStatus = async (req, res) => {
         res.json(registration);
     } catch (err) {
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500).json({ message: 'Server Error' });
     }
 }

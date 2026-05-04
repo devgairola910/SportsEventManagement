@@ -38,7 +38,7 @@ export default function AdminDashboard() {
     <div>
       <div className="mb-10 text-slate-800">
          <h1 className="text-3xl font-extrabold tracking-tight mb-2">Systems Overview</h1>
-         <p className="text-slate-500 font-medium">Get a quick glimpse of what's happening today.</p>
+         <p className="text-slate-500 font-medium">Get a quick glimpse of what&apos;s happening today.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">

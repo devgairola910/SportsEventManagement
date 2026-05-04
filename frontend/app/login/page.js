@@ -28,7 +28,7 @@ export default function Login() {
         <div>
           <h2 className="mt-2 text-center text-4xl font-extrabold text-indigo-900 drop-shadow-sm">Sign In</h2>
           <p className="mt-4 text-center text-sm text-slate-600 font-medium">
-            Don't have an account?{' '}
+            Don&apos;t have an account?{' '}
             <Link href="/register" className="text-indigo-600 hover:text-indigo-500 font-bold transition-colors">
               Sign up here
             </Link>
