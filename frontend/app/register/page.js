@@ -70,9 +70,11 @@ export default function Register() {
               />
             </div>
             <div>
-               <label className="text-sm font-bold text-slate-700 block mb-2">I am registering as an</label>
+               <label htmlFor="role" className="text-sm font-bold text-slate-700 block mb-2">I am registering as an</label>
                <select 
-                  className="appearance-none rounded-xl relative block w-full px-4 py-3 border border-slate-300 text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-slate-50 transition-all"
+                  id="role"
+                  name="role"
+                  className="rounded-xl relative block w-full px-4 py-3 border border-slate-300 text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-slate-50 transition-all cursor-pointer"
                   value={role} onChange={(e) => setRole(e.target.value)}
                 >
                   <option value="student">Athlete / Student</option>
